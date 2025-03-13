@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { UsersService } from './users/users.service';
 import { UsersController } from './users/users.controller';
 import { DatabaseModule } from './database/database.module';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
+import { ScraperModule } from './scraper/scraper.module';
 
 @Module({
   imports: [
@@ -17,9 +16,9 @@ import { User } from './users/entities/user.entity';
       synchronize: true,
     }),
     UsersModule, 
-    DatabaseModule
+    DatabaseModule, ScraperModule
   ],
-  controllers: [AppController, UsersController],
-  providers: [AppService, UsersService],
+  controllers: [UsersController],
+  providers: [UsersService],
 })
 export class AppModule {}

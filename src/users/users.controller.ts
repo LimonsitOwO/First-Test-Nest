@@ -15,14 +15,4 @@ export class UsersController {
   ) {
     return this.usersService.create(name, email, password);
   }
-
-  @Get()
-  async findAll() {
-    return this.usersService.findAll();
-  }
-
-  @Get(':id')
-  async findOne(@Param('id') id: number) {
-    return this.usersService.findOne(id);
-  }
 }
